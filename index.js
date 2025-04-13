@@ -13,10 +13,10 @@ app.get('/', function (req, res) {
 });
 
 app.post('/api/fileanalyse', upload.single('upfile'), async (req, res) => {
-  const {filename, mimetype, size} = req.file;
+  const {originalname, mimetype, size} = req.file;
   console.log(req.file);
   res.json({
-    name: filename,
+    name: originalname,
     type: mimetype,
     size: size
   });
